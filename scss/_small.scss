@@ -1,0 +1,187 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*----------- BODY --------------*/
+body {
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+}
+
+
+/*----------- HEADER --------------*/
+div#headerWrapper {
+    background-image: url(../images/header-small.jpg);
+    height: 140px;
+}
+
+header {
+    padding: .5rem 2%;
+    color: black;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h2 {
+    margin: 0;
+    font-weight: normal;
+}
+
+/*----------- NAVIGATION --------------*/
+div#navWrapper {
+    background-color: rgb(27, 42, 68);
+}
+
+nav {}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    float: left;
+    width: 25%;
+}
+
+nav ul li a {
+    display: block;
+    background-color: rgb(27, 42, 68);
+    color: #eee;
+    border-left: 1px solid #777;
+    padding: .5rem 0;
+    text-decoration: none;
+    font-size: .9rem;
+    text-align: center;
+}
+
+nav ul li:first-child a {
+    border-left: none;
+}
+
+nav ul li a:hover {
+    background-color: rgb(58, 97, 160);
+    color: rgb(255, 255, 255);
+}
+
+nav ul li.active a {
+    background-color: lighten(rgb(34, 62, 110), 5%);
+    color: #fff;
+}
+
+/*----------- MAIN --------------*/
+main {
+    padding: 0 2%;
+    min-height: 10rem;
+
+    $cbr: 10px;
+
+    .card-deck {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex-basis: 100%;
+        border: 1px solid #999;
+        border-radius: $cbr;
+        margin: 1rem 1%;
+        text-align: center;
+
+        section {
+            background-color: rgb(27, 42, 68);
+            color: white;
+            padding: 1rem 0;
+            border-radius: $cbr - 1 $cbr - 1 0 0;
+        }
+
+        img {
+            padding: 1rem;
+        }
+
+        img:hover {
+            -webkit-animation-name: wiggle;
+            -ms-animation-name: wiggle;
+            -ms-animation-duration: 1000ms;
+            -webkit-animation-duration: 1000ms;
+            -webkit-animation-iteration-count: 1;
+            -ms-animation-iteration-count: 1;
+            -webkit-animation-timing-function: ease-in-out;
+            -ms-animation-timing-function: ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0% {
+                transform: rotate(10deg);
+            }
+
+            25% {
+                transform: rotate(-10deg);
+            }
+
+            50% {
+                transform: rotate(20deg);
+            }
+
+            75% {
+                transform: rotate(-5deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        p {
+            padding: 1rem 2vw;
+        }
+
+        a {
+            display: block;
+            background-color: rgb(27, 42, 68);
+            color: rgb(255, 255, 255);
+            padding: 1rem 0;
+            margin: 1rem 4vw;
+            border-radius: $cbr;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: lighten($color: rgb(27, 42, 68), $amount: 20%);
+        }
+    }
+}
+
+
+/*----------- FOOTER --------------*/
+div#footerWrapper {
+    background-color: rgb(27, 42, 68);
+}
+
+footer {
+    color: white;
+    padding: .5rem 2%;
+    text-align: center;
+}
+
+
+
+/*----- Clearfix: Force an Element not to collapse -----*/
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
